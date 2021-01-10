@@ -18,8 +18,8 @@ class MusicListViewController: UITableViewController {
     
     func configureTableView() {
         setTableViewDelegates()
-        musicList.rowHeight = 100
         self.title = "Library"
+        musicList.rowHeight = 100
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -36,3 +36,14 @@ class MusicListViewController: UITableViewController {
         return UITableViewCell()
     }
 }
+
+
+ /* TODO LIST
+ - json i odbieranie z niego danych
+ - wyświetlanie danych z jsona
+ - wyszukiwarka na górze kontrolera
+ - dostosować do light/dark mode
+ - stworzyć Radio Player
+ - pokombinować żeby dodawać do ulubionych
+ - dodać żeby player się minimalizował i można było wrócić do obecnie grającej piosenki
+*/
