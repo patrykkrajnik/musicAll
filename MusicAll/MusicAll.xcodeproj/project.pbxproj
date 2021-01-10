@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */; };
 		DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */; };
-		DCAED58125AB49AC00F77A3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED58025AB49AC00F77A3D /* ViewController.swift */; };
 		DCAED58425AB49AC00F77A3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58225AB49AC00F77A3D /* Main.storyboard */; };
 		DCAED58625AB49AD00F77A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58525AB49AD00F77A3D /* Assets.xcassets */; };
 		DCAED58925AB49AD00F77A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */; };
+		DCAED59625AB4FB500F77A3D /* MusicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED59525AB4FB500F77A3D /* MusicList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DCAED57925AB49AC00F77A3D /* MusicAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DCAED58025AB49AC00F77A3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCAED58325AB49AC00F77A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCAED58525AB49AD00F77A3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCAED58825AB49AD00F77A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCAED58A25AB49AD00F77A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCAED59525AB4FB500F77A3D /* MusicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +58,29 @@
 			children = (
 				DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */,
 				DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */,
-				DCAED58025AB49AC00F77A3D /* ViewController.swift */,
 				DCAED58225AB49AC00F77A3D /* Main.storyboard */,
+				DCAED59325AB4E5400F77A3D /* Music Player */,
+				DCAED59225AB4E3F00F77A3D /* Music List */,
 				DCAED58525AB49AD00F77A3D /* Assets.xcassets */,
 				DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */,
 				DCAED58A25AB49AD00F77A3D /* Info.plist */,
 			);
 			path = MusicAll;
+			sourceTree = "<group>";
+		};
+		DCAED59225AB4E3F00F77A3D /* Music List */ = {
+			isa = PBXGroup;
+			children = (
+				DCAED59525AB4FB500F77A3D /* MusicList.swift */,
+			);
+			path = "Music List";
+			sourceTree = "<group>";
+		};
+		DCAED59325AB4E5400F77A3D /* Music Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Music Player";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCAED58125AB49AC00F77A3D /* ViewController.swift in Sources */,
 				DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */,
 				DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */,
+				DCAED59625AB4FB500F77A3D /* MusicList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
