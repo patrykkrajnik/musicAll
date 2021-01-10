@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Music List-->
         <scene sceneID="oXP-UX-UhA">
             <objects>
                 <tableViewController id="aO6-4N-Pir" customClass="MusicList" customModule="MusicAll" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="aO6-4N-Pir" id="l0Q-KF-Fuu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="YDT-Af-eN8"/>
+                    <navigationItem key="navigationItem" id="YDT-Af-eN8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30A-2i-Bnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

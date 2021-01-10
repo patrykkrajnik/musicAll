@@ -13,6 +13,11 @@
 		DCAED58625AB49AD00F77A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58525AB49AD00F77A3D /* Assets.xcassets */; };
 		DCAED58925AB49AD00F77A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */; };
 		DCAED59625AB4FB500F77A3D /* MusicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED59525AB4FB500F77A3D /* MusicList.swift */; };
+		DCAED59B25AB5AFF00F77A3D /* album_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED59A25AB5AFF00F77A3D /* album_placeholder.png */; };
+		DCAED59E25AB5B0500F77A3D /* pause_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED59D25AB5B0500F77A3D /* pause_rounded.png */; };
+		DCAED5A125AB5B0A00F77A3D /* play_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A025AB5B0A00F77A3D /* play_rounded.png */; };
+		DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */; };
+		DCAED5A725AB5B1200F77A3D /* skipForward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		DCAED58825AB49AD00F77A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCAED58A25AB49AD00F77A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCAED59525AB4FB500F77A3D /* MusicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicList.swift; sourceTree = "<group>"; };
+		DCAED59A25AB5AFF00F77A3D /* album_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album_placeholder.png; sourceTree = "<group>"; };
+		DCAED59D25AB5B0500F77A3D /* pause_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_rounded.png; sourceTree = "<group>"; };
+		DCAED5A025AB5B0A00F77A3D /* play_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_rounded.png; sourceTree = "<group>"; };
+		DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipBackward_icon.png; sourceTree = "<group>"; };
+		DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipForward_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +74,7 @@
 				DCAED58525AB49AD00F77A3D /* Assets.xcassets */,
 				DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */,
 				DCAED58A25AB49AD00F77A3D /* Info.plist */,
+				DCAED59925AB5ACF00F77A3D /* Images */,
 			);
 			path = MusicAll;
 			sourceTree = "<group>";
@@ -81,6 +92,18 @@
 			children = (
 			);
 			path = "Music Player";
+			sourceTree = "<group>";
+		};
+		DCAED59925AB5ACF00F77A3D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DCAED59A25AB5AFF00F77A3D /* album_placeholder.png */,
+				DCAED59D25AB5B0500F77A3D /* pause_rounded.png */,
+				DCAED5A025AB5B0A00F77A3D /* play_rounded.png */,
+				DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */,
+				DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +163,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */,
+				DCAED59E25AB5B0500F77A3D /* pause_rounded.png in Resources */,
+				DCAED5A125AB5B0A00F77A3D /* play_rounded.png in Resources */,
+				DCAED5A725AB5B1200F77A3D /* skipForward_icon.png in Resources */,
 				DCAED58925AB49AD00F77A3D /* LaunchScreen.storyboard in Resources */,
 				DCAED58625AB49AD00F77A3D /* Assets.xcassets in Resources */,
 				DCAED58425AB49AC00F77A3D /* Main.storyboard in Resources */,
+				DCAED59B25AB5AFF00F77A3D /* album_placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
