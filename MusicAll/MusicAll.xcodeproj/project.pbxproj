@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC888E3A25AB773C0001A252 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC888E3925AB773C0001A252 /* MusicPlayerViewController.swift */; };
 		DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */; };
 		DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */; };
 		DCAED58425AB49AC00F77A3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58225AB49AC00F77A3D /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC888E3925AB773C0001A252 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		DCAED57925AB49AC00F77A3D /* MusicAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		DCAED59325AB4E5400F77A3D /* Music Player */ = {
 			isa = PBXGroup;
 			children = (
+				DC888E3925AB773C0001A252 /* MusicPlayerViewController.swift */,
 			);
 			path = "Music Player";
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */,
 				DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */,
+				DC888E3A25AB773C0001A252 /* MusicPlayerViewController.swift in Sources */,
 				DCAED59625AB4FB500F77A3D /* MusicListViewController.swift in Sources */,
 				DCAED5AA25AB5E5300F77A3D /* MusicListCell.swift in Sources */,
 			);
