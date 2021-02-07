@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC4EF8B025D01C3200C7CE34 /* localMusic.json in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8AF25D01C3200C7CE34 /* localMusic.json */; };
+		DC4EF8B425D01CFE00C7CE34 /* Bensound - A New Beginning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8B325D01CFE00C7CE34 /* Bensound - A New Beginning.mp3 */; };
+		DC4EF8BB25D01D0A00C7CE34 /* Bensound - Ukulele.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8B625D01D0900C7CE34 /* Bensound - Ukulele.mp3 */; };
+		DC4EF8BC25D01D0A00C7CE34 /* Bensound - Hey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8B725D01D0900C7CE34 /* Bensound - Hey.mp3 */; };
+		DC4EF8BD25D01D0A00C7CE34 /* Bensound - Creative Minds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8B825D01D0900C7CE34 /* Bensound - Creative Minds.mp3 */; };
+		DC4EF8BF25D01D0A00C7CE34 /* Bensound - Memories.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8BA25D01D0A00C7CE34 /* Bensound - Memories.mp3 */; };
+		DC4EF8C325D01FC600C7CE34 /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4EF8C225D01FC600C7CE34 /* SongModel.swift */; };
+		DC4EF8C625D05CE700C7CE34 /* Bensound - Happy Rock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DC4EF8C525D05CE700C7CE34 /* Bensound - Happy Rock.mp3 */; };
 		DC888E3A25AB773C0001A252 /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC888E3925AB773C0001A252 /* MusicPlayerViewController.swift */; };
 		DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */; };
 		DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */; };
@@ -23,6 +31,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC4EF8AF25D01C3200C7CE34 /* localMusic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = localMusic.json; sourceTree = "<group>"; };
+		DC4EF8B325D01CFE00C7CE34 /* Bensound - A New Beginning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bensound - A New Beginning.mp3"; path = "../../../../Music/Bensound - A New Beginning.mp3"; sourceTree = "<group>"; };
+		DC4EF8B625D01D0900C7CE34 /* Bensound - Ukulele.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bensound - Ukulele.mp3"; path = "../../../../Music/Bensound - Ukulele.mp3"; sourceTree = "<group>"; };
+		DC4EF8B725D01D0900C7CE34 /* Bensound - Hey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bensound - Hey.mp3"; path = "../../../../Music/Bensound - Hey.mp3"; sourceTree = "<group>"; };
+		DC4EF8B825D01D0900C7CE34 /* Bensound - Creative Minds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bensound - Creative Minds.mp3"; path = "../../../../Music/Bensound - Creative Minds.mp3"; sourceTree = "<group>"; };
+		DC4EF8BA25D01D0A00C7CE34 /* Bensound - Memories.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bensound - Memories.mp3"; path = "../../../../Music/Bensound - Memories.mp3"; sourceTree = "<group>"; };
+		DC4EF8C225D01FC600C7CE34 /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		DC4EF8C525D05CE700C7CE34 /* Bensound - Happy Rock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Bensound - Happy Rock.mp3"; path = "../../../../Music/Bensound - Happy Rock.mp3"; sourceTree = "<group>"; };
 		DC888E3925AB773C0001A252 /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		DCAED57925AB49AC00F77A3D /* MusicAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +67,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC4EF8AD25D01BDB00C7CE34 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				DC4EF8AE25D01C0A00C7CE34 /* Songs */,
+				DC4EF8AF25D01C3200C7CE34 /* localMusic.json */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		DC4EF8AE25D01C0A00C7CE34 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				DC4EF8B825D01D0900C7CE34 /* Bensound - Creative Minds.mp3 */,
+				DC4EF8C525D05CE700C7CE34 /* Bensound - Happy Rock.mp3 */,
+				DC4EF8B725D01D0900C7CE34 /* Bensound - Hey.mp3 */,
+				DC4EF8BA25D01D0A00C7CE34 /* Bensound - Memories.mp3 */,
+				DC4EF8B625D01D0900C7CE34 /* Bensound - Ukulele.mp3 */,
+				DC4EF8B325D01CFE00C7CE34 /* Bensound - A New Beginning.mp3 */,
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		DC4EF8C125D01FA500C7CE34 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC4EF8C225D01FC600C7CE34 /* SongModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DCAED57025AB49AC00F77A3D = {
 			isa = PBXGroup;
 			children = (
@@ -73,11 +119,13 @@
 				DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */,
 				DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */,
 				DCAED58225AB49AC00F77A3D /* Main.storyboard */,
-				DCAED59325AB4E5400F77A3D /* Music Player */,
 				DCAED59225AB4E3F00F77A3D /* Music List */,
+				DCAED59325AB4E5400F77A3D /* Music Player */,
+				DC4EF8C125D01FA500C7CE34 /* Model */,
 				DCAED58525AB49AD00F77A3D /* Assets.xcassets */,
 				DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */,
 				DCAED58A25AB49AD00F77A3D /* Info.plist */,
+				DC4EF8AD25D01BDB00C7CE34 /* Local */,
 				DCAED59925AB5ACF00F77A3D /* Images */,
 			);
 			path = MusicAll;
@@ -170,12 +218,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */,
+				DC4EF8B425D01CFE00C7CE34 /* Bensound - A New Beginning.mp3 in Resources */,
 				DCAED59E25AB5B0500F77A3D /* pause_rounded.png in Resources */,
+				DC4EF8BD25D01D0A00C7CE34 /* Bensound - Creative Minds.mp3 in Resources */,
 				DCAED5A125AB5B0A00F77A3D /* play_rounded.png in Resources */,
+				DC4EF8B025D01C3200C7CE34 /* localMusic.json in Resources */,
+				DC4EF8BF25D01D0A00C7CE34 /* Bensound - Memories.mp3 in Resources */,
+				DC4EF8BB25D01D0A00C7CE34 /* Bensound - Ukulele.mp3 in Resources */,
 				DCAED5A725AB5B1200F77A3D /* skipForward_icon.png in Resources */,
 				DCAED58925AB49AD00F77A3D /* LaunchScreen.storyboard in Resources */,
 				DCAED58625AB49AD00F77A3D /* Assets.xcassets in Resources */,
+				DC4EF8BC25D01D0A00C7CE34 /* Bensound - Hey.mp3 in Resources */,
 				DCAED58425AB49AC00F77A3D /* Main.storyboard in Resources */,
+				DC4EF8C625D05CE700C7CE34 /* Bensound - Happy Rock.mp3 in Resources */,
 				DCAED59B25AB5AFF00F77A3D /* album_placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4EF8C325D01FC600C7CE34 /* SongModel.swift in Sources */,
 				DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */,
 				DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */,
 				DC888E3A25AB773C0001A252 /* MusicPlayerViewController.swift in Sources */,
