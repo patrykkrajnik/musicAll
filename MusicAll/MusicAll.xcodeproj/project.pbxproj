@@ -70,13 +70,13 @@
 		DC4EF8AD25D01BDB00C7CE34 /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				DC4EF8AE25D01C0A00C7CE34 /* Songs */,
+				DC4EF8AE25D01C0A00C7CE34 /* Music */,
 				DC4EF8AF25D01C3200C7CE34 /* localMusic.json */,
 			);
 			path = Local;
 			sourceTree = "<group>";
 		};
-		DC4EF8AE25D01C0A00C7CE34 /* Songs */ = {
+		DC4EF8AE25D01C0A00C7CE34 /* Music */ = {
 			isa = PBXGroup;
 			children = (
 				DC4EF8B825D01D0900C7CE34 /* Bensound - Creative Minds.mp3 */,
@@ -86,7 +86,7 @@
 				DC4EF8B625D01D0900C7CE34 /* Bensound - Ukulele.mp3 */,
 				DC4EF8B325D01CFE00C7CE34 /* Bensound - A New Beginning.mp3 */,
 			);
-			path = Songs;
+			path = Music;
 			sourceTree = "<group>";
 		};
 		DC4EF8C125D01FA500C7CE34 /* Model */ = {
