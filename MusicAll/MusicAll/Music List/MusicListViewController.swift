@@ -150,6 +150,11 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
         cell.songTitle.text = getSongTitle(songName: currentSongs.songName)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
 }
 
 extension MusicListViewController: UISearchResultsUpdating {
@@ -160,9 +165,6 @@ extension MusicListViewController: UISearchResultsUpdating {
 
 
  /* TODO LIST
- - json i odbieranie z niego danych
- - wyświetlanie danych z jsona
- - wyszukiwarka na górze kontrolera
  - dostosować do light/dark mode
  - stworzyć Radio Player
  - pokombinować żeby dodawać do ulubionych
