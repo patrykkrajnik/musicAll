@@ -83,8 +83,29 @@
                     <view key="view" contentMode="scaleToFill" id="wuU-6d-BjS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="W3c-fq-bnE">
+                                <rect key="frame" x="60" y="181" width="294" height="294"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Hii-zl-eqg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="a4G-Zb-xlV"/>
+                                    <constraint firstAttribute="width" secondItem="W3c-fq-bnE" secondAttribute="height" multiplier="1:1" id="u8w-xr-3YS"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="t32-gS-3VN">
+                                <rect key="frame" x="188.66666666666666" y="309.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PtG-AY-WXP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PtG-AY-WXP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W3c-fq-bnE" secondAttribute="trailing" constant="60" id="Esm-aM-WGi"/>
+                            <constraint firstItem="W3c-fq-bnE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PtG-AY-WXP" secondAttribute="leading" constant="60" id="JL6-xh-WUz"/>
+                            <constraint firstItem="t32-gS-3VN" firstAttribute="centerX" secondItem="wuU-6d-BjS" secondAttribute="centerX" id="Kpy-N8-cjL"/>
+                            <constraint firstItem="W3c-fq-bnE" firstAttribute="centerX" secondItem="wuU-6d-BjS" secondAttribute="centerX" id="PY8-4O-3Gu"/>
+                            <constraint firstItem="W3c-fq-bnE" firstAttribute="centerY" secondItem="wuU-6d-BjS" secondAttribute="centerY" constant="-40" id="iy5-dD-6Wv"/>
+                            <constraint firstItem="t32-gS-3VN" firstAttribute="centerY" secondItem="wuU-6d-BjS" secondAttribute="centerY" constant="-40" id="qyK-Ul-TCd"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNo-hJ-EHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
