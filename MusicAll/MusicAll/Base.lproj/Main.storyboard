@@ -85,25 +85,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="W3c-fq-bnE">
-                                <rect key="frame" x="60" y="181" width="294" height="294"/>
+                                <rect key="frame" x="87.333333333333329" y="208.33333333333331" width="239.33333333333337" height="239.33333333333331"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Hii-zl-eqg"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="a4G-Zb-xlV"/>
                                     <constraint firstAttribute="width" secondItem="W3c-fq-bnE" secondAttribute="height" multiplier="1:1" id="u8w-xr-3YS"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="t32-gS-3VN">
                                 <rect key="frame" x="188.66666666666666" y="309.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3c-N8-qFD">
+                                <rect key="frame" x="40" y="148.33333333333334" width="334" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rd-7V-k93">
+                                <rect key="frame" x="40" y="113.33333333333333" width="334" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PtG-AY-WXP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W3c-fq-bnE" firstAttribute="height" secondItem="wuU-6d-BjS" secondAttribute="height" multiplier="0.325" id="63o-Xa-hWb"/>
                             <constraint firstItem="PtG-AY-WXP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W3c-fq-bnE" secondAttribute="trailing" constant="60" id="Esm-aM-WGi"/>
                             <constraint firstItem="W3c-fq-bnE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PtG-AY-WXP" secondAttribute="leading" constant="60" id="JL6-xh-WUz"/>
                             <constraint firstItem="t32-gS-3VN" firstAttribute="centerX" secondItem="wuU-6d-BjS" secondAttribute="centerX" id="Kpy-N8-cjL"/>
                             <constraint firstItem="W3c-fq-bnE" firstAttribute="centerX" secondItem="wuU-6d-BjS" secondAttribute="centerX" id="PY8-4O-3Gu"/>
+                            <constraint firstItem="X3c-N8-qFD" firstAttribute="leading" secondItem="PtG-AY-WXP" secondAttribute="leading" constant="40" id="Yze-Db-EZs"/>
+                            <constraint firstItem="PtG-AY-WXP" firstAttribute="trailing" secondItem="0rd-7V-k93" secondAttribute="trailing" constant="40" id="a0E-DM-kVp"/>
+                            <constraint firstItem="PtG-AY-WXP" firstAttribute="trailing" secondItem="X3c-N8-qFD" secondAttribute="trailing" constant="40" id="gbv-dr-3pn"/>
+                            <constraint firstItem="X3c-N8-qFD" firstAttribute="top" secondItem="W3c-fq-bnE" secondAttribute="top" constant="-60" id="hhY-Eq-64h"/>
                             <constraint firstItem="W3c-fq-bnE" firstAttribute="centerY" secondItem="wuU-6d-BjS" secondAttribute="centerY" constant="-40" id="iy5-dD-6Wv"/>
+                            <constraint firstItem="0rd-7V-k93" firstAttribute="top" secondItem="X3c-N8-qFD" secondAttribute="top" constant="-35" id="jeJ-WH-X6a"/>
+                            <constraint firstItem="0rd-7V-k93" firstAttribute="leading" secondItem="PtG-AY-WXP" secondAttribute="leading" constant="40" id="ovF-Ed-gCn"/>
                             <constraint firstItem="t32-gS-3VN" firstAttribute="centerY" secondItem="wuU-6d-BjS" secondAttribute="centerY" constant="-40" id="qyK-Ul-TCd"/>
                         </constraints>
                     </view>
