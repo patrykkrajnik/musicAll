@@ -120,10 +120,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnu-sS-h12">
+                                <rect key="frame" x="167" y="587.66666666666663" width="80" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMU-bW-Kca">
+                                        <rect key="frame" x="20" y="20" width="40" height="40"/>
+                                        <state key="normal" image="play_rounded.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPn-OE-fK7">
+                                        <rect key="frame" x="20" y="20" width="40" height="40"/>
+                                        <state key="normal" image="pause_rounded.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="tPn-OE-fK7" firstAttribute="leading" secondItem="rnu-sS-h12" secondAttribute="leading" constant="20" id="9K0-vs-R6d"/>
+                                    <constraint firstItem="KMU-bW-Kca" firstAttribute="top" secondItem="rnu-sS-h12" secondAttribute="top" constant="20" id="AkM-K7-CDB"/>
+                                    <constraint firstAttribute="height" constant="80" id="GhA-A2-gne"/>
+                                    <constraint firstAttribute="width" constant="80" id="Hc4-Gv-eBG"/>
+                                    <constraint firstAttribute="trailing" secondItem="KMU-bW-Kca" secondAttribute="trailing" constant="20" id="OFz-gr-Blh"/>
+                                    <constraint firstAttribute="bottom" secondItem="tPn-OE-fK7" secondAttribute="bottom" constant="20" id="TYZ-7S-IE3"/>
+                                    <constraint firstAttribute="bottom" secondItem="KMU-bW-Kca" secondAttribute="bottom" constant="20" id="l80-Jt-OV5"/>
+                                    <constraint firstItem="tPn-OE-fK7" firstAttribute="top" secondItem="rnu-sS-h12" secondAttribute="top" constant="20" id="nND-vB-GhC"/>
+                                    <constraint firstItem="KMU-bW-Kca" firstAttribute="leading" secondItem="rnu-sS-h12" secondAttribute="leading" constant="20" id="r54-9S-OCR"/>
+                                    <constraint firstAttribute="trailing" secondItem="tPn-OE-fK7" secondAttribute="trailing" constant="20" id="uFx-j9-CvK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PtG-AY-WXP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rnu-sS-h12" firstAttribute="bottom" secondItem="e2j-2p-j1Y" secondAttribute="bottom" constant="140" id="0da-ZW-659"/>
+                            <constraint firstItem="rnu-sS-h12" firstAttribute="centerX" secondItem="wuU-6d-BjS" secondAttribute="centerX" id="1Jd-CF-xZY"/>
                             <constraint firstItem="W3c-fq-bnE" firstAttribute="height" secondItem="wuU-6d-BjS" secondAttribute="height" multiplier="0.325" id="63o-Xa-hWb"/>
                             <constraint firstItem="e2j-2p-j1Y" firstAttribute="leading" secondItem="PtG-AY-WXP" secondAttribute="leading" constant="40" id="AXH-Tj-s2o"/>
                             <constraint firstItem="PtG-AY-WXP" firstAttribute="trailing" secondItem="5WE-l9-tTo" secondAttribute="trailing" constant="40" id="Aoj-xL-4RF"/>
@@ -144,12 +172,13 @@
                             <constraint firstItem="0rd-7V-k93" firstAttribute="leading" secondItem="PtG-AY-WXP" secondAttribute="leading" constant="40" id="ovF-Ed-gCn"/>
                             <constraint firstItem="t32-gS-3VN" firstAttribute="centerY" secondItem="wuU-6d-BjS" secondAttribute="centerY" constant="-40" id="qyK-Ul-TCd"/>
                             <constraint firstItem="e2j-2p-j1Y" firstAttribute="bottom" secondItem="W3c-fq-bnE" secondAttribute="bottom" constant="80" id="rKe-3h-DpD"/>
+                            <constraint firstItem="5WE-l9-tTo" firstAttribute="leading" secondItem="n8E-zm-vQt" secondAttribute="trailing" constant="281.33333333333337" id="u1q-HI-ao7"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNo-hJ-EHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="-10"/>
+            <point key="canvasLocation" x="1505.7971014492755" y="-10.597826086956523"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="blc-IU-niC">
@@ -170,6 +199,8 @@
     </scenes>
     <resources>
         <image name="album_placeholder.png" width="480" height="480"/>
+        <image name="pause_rounded.png" width="64" height="64"/>
+        <image name="play_rounded.png" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
