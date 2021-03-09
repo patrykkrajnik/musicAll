@@ -175,6 +175,18 @@
                             <constraint firstItem="5WE-l9-tTo" firstAttribute="leading" secondItem="n8E-zm-vQt" secondAttribute="trailing" constant="281.33333333333337" id="u1q-HI-ao7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="t32-gS-3VN" id="1Yl-fk-tDX"/>
+                        <outlet property="artistNameLabel" destination="X3c-N8-qFD" id="5pq-XA-Dam"/>
+                        <outlet property="currentTimeLabel" destination="n8E-zm-vQt" id="dhg-Zd-RpA"/>
+                        <outlet property="pauseButton" destination="tPn-OE-fK7" id="Btl-7D-yyO"/>
+                        <outlet property="playButton" destination="KMU-bW-Kca" id="gAD-nA-q9Z"/>
+                        <outlet property="playPauseButtonView" destination="rnu-sS-h12" id="Hv4-3Q-E9v"/>
+                        <outlet property="progressSlider" destination="e2j-2p-j1Y" id="Tl0-Vd-aSK"/>
+                        <outlet property="songArtworkView" destination="W3c-fq-bnE" id="Tc0-g6-9LV"/>
+                        <outlet property="songTitleLabel" destination="0rd-7V-k93" id="c7G-zb-J5F"/>
+                        <outlet property="totalTimeLabel" destination="5WE-l9-tTo" id="B0M-KF-05F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNo-hJ-EHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
