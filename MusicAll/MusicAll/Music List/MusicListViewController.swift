@@ -152,7 +152,14 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! MusicListCell
         let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
+        
+        if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description {
+            viewController?.songTitle = songTitleCell
+            viewController?.songArtist = songArtistCell
+        }
+        
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
 }
