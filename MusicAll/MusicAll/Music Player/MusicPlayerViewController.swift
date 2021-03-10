@@ -27,8 +27,33 @@ class MusicPlayerViewController: UIViewController {
     private var timer: Timer!
     static var player: AVPlayer?
     
+    var songTitle = "Song Title"
+    var songArtist = "Artist"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupInitialUI()
+    }
+    
+    func setupInitialUI() {
+        makeItRounded(view: playPauseButtonView, newSize: playPauseButtonView.frame.width)
+        progressSlider.value = 0.0
+        playButton.isHidden = true
+        pauseButton.isHidden = false
+    }
+    
+    func makeItRounded(view: UIView, newSize: CGFloat) {
+        let saveCenter: CGPoint = view.center
+        let newFrame: CGRect = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: newSize, height: newSize)
+        
+        view.frame = newFrame
+        view.layer.cornerRadius = newSize / 2.0
+        view.clipsToBounds = true
+        view.center = saveCenter
+    }
+    
+    static func isPlaying() -> Bool {
+        return (player != nil) && (player!.rate != 0) && (player!.error == nil)
     }
 }
