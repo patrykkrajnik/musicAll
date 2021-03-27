@@ -126,10 +126,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMU-bW-Kca">
                                         <rect key="frame" x="25" y="25" width="30" height="30"/>
                                         <state key="normal" image="play_rounded.png"/>
+                                        <connections>
+                                            <action selector="playButtonTapped:" destination="g4W-ZG-XYO" eventType="touchUpInside" id="o9h-0F-Ial"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPn-OE-fK7">
                                         <rect key="frame" x="25" y="25" width="30" height="30"/>
                                         <state key="normal" image="pause_rounded.png"/>
+                                        <connections>
+                                            <action selector="pauseButtonTapped:" destination="g4W-ZG-XYO" eventType="touchUpInside" id="zcP-13-0A4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

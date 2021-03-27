@@ -27,6 +27,7 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
     var filteredSongs = [SongModel]()
     
     final let apiURL = "Here is a place for URL to your API"
+    var isJsonOffline = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
             parseJsonFromURL(json: data)
         } else {
             parseLocalJson()
+            isJsonOffline = true
         }
     }
     
@@ -158,6 +160,7 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
         if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description {
             viewController?.songTitle = songTitleCell
             viewController?.songArtist = songArtistCell
+            viewController?.isJsonOffline = isJsonOffline
         }
         
         self.navigationController?.pushViewController(viewController!, animated: true)
