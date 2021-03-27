@@ -13,7 +13,7 @@ class MusicPlayerViewController: UIViewController {
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
-    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var currentTimeLeftLabel: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressSlider: UISlider!
@@ -115,34 +115,51 @@ class MusicPlayerViewController: UIViewController {
         MusicPlayerViewController.player?.volume = 1.0
         MusicPlayerViewController.player?.play()
         startTimer()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying(sender:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
-    @objc func updateCurrentTime() {
+    @objc func playerDidFinishPlaying(sender: Notification) {
+        playSongAt()
+    }
+    
+    @objc func setupTimers() {
         if (MusicPlayerViewController.player != nil) && !(MusicPlayerViewController.player?.currentItem?.duration.seconds.isNaN)! {
             progressSlider.maximumValue = Float((MusicPlayerViewController.player?.currentItem?.duration.seconds)!)
             progressSlider.value = Float((MusicPlayerViewController.player?.currentTime().seconds)!)
         }
+        
+        setupCurrentTime()
+        
+        if progressSlider.value > 0.0 {
+            activityIndicator.isHidden = true
+        }
+    }
+    
+    func setupCurrentTime() {
+        if progressSlider.value.isNaN {return}
         
         let currentDuration = Int(progressSlider.value)
         let minutes = currentDuration / 60
         let seconds = currentDuration % 60
         
         currentTimeLabel.text = NSString(format: "%i:%02i", minutes, seconds) as String
-        updateTotalTime()
+        setupCurrentTimeLeft(currentDuration: currentDuration)
     }
     
-    func updateTotalTime() {
+    func setupCurrentTimeLeft(currentDuration: Int) {
         if progressSlider.maximumValue.isNaN {return}
         
         let totalDuration = Int(progressSlider.maximumValue)
-        let minutes = totalDuration / 60
-        let seconds = totalDuration % 60
+        let currentDurationLeft = totalDuration - currentDuration
+        let minutes = currentDurationLeft / 60
+        let seconds = currentDurationLeft % 60
         
-        totalTimeLabel.text = NSString(format: "%i:%02i", minutes, seconds) as String
+        currentTimeLeftLabel.text = NSString(format: "-%i:%02i", minutes, seconds) as String
     }
     
     private func startTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCurrentTime), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(setupTimers), userInfo: nil, repeats: true)
     }
     
     private func stopTimer() {
@@ -161,7 +178,7 @@ class MusicPlayerViewController: UIViewController {
     
     private func setupAVAudioSession() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
             debugPrint("Playback OK")
             
@@ -175,3 +192,10 @@ class MusicPlayerViewController: UIViewController {
         return (player != nil) && (player!.rate != 0) && (player!.error == nil)
     }
 }
+
+/* TODO LIST:
+- Command Center
+- Dostosować do light/dark mode
+- Pokombinować żeby dodawać do ulubionych
+- Dodać żeby player się minimalizował i można było wrócić do obecnie grającej piosenki
+*/

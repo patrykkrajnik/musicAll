@@ -172,11 +172,3 @@ extension MusicListViewController: UISearchResultsUpdating {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }
-
-
- /* TODO LIST
- - dostosować do light/dark mode
- - stworzyć Radio Player
- - pokombinować żeby dodawać do ulubionych
- - dodać żeby player się minimalizował i można było wrócić do obecnie grającej piosenki
-*/
