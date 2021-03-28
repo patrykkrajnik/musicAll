@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class MusicPlayerViewController: UIViewController {
     
@@ -30,14 +31,14 @@ class MusicPlayerViewController: UIViewController {
     var songTitle = "Song Title"
     var songArtist = "Artist"
     var isJsonOffline = false
-    var nowPlayingInfo: [String:AnyObject] = [:]
+    var nowPlayingInfo: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressSlider.addTarget(self, action: #selector(userSeek), for: UIControl.Event.valueChanged)
         
         setupInitialUI()
-        playSongAt()
+        initSongPlaying()
         setupAVAudioSession()
     }
     
@@ -71,6 +72,8 @@ class MusicPlayerViewController: UIViewController {
         } else {
             artistNameLabel.isHidden = true
         }
+        
+        setupCommandCenterInfo(songName: songTitle, artistName: songArtist)
     }
     
     func updateButtons() {
@@ -84,23 +87,7 @@ class MusicPlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func playButtonTapped(_ sender: UIButton) {
-        MusicPlayerViewController.player?.play()
-        updateButtons()
-        
-        UIView.animate(
-            withDuration: 1.0,
-            delay: 0.0,
-            usingSpringWithDamping: 0.5,
-            initialSpringVelocity: 0.5,
-            options: .curveEaseIn,
-            animations: {
-                self.songArtworkView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            },
-            completion: nil)
-    }
-    
-    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+    func pauseSong() {
         MusicPlayerViewController.player?.pause()
         updateButtons()
         
@@ -116,7 +103,31 @@ class MusicPlayerViewController: UIViewController {
             completion: nil)
     }
     
-    func playSongAt() {
+    func playSong() {
+        MusicPlayerViewController.player?.play()
+        updateButtons()
+        
+        UIView.animate(
+            withDuration: 1.0,
+            delay: 0.0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseIn,
+            animations: {
+                self.songArtworkView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            },
+            completion: nil)
+    }
+    
+    @IBAction func playButtonTapped(_ sender: UIButton) {
+        playSong()
+    }
+    
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        pauseSong()
+    }
+    
+    func initSongPlaying() {
         var songURL = ""
         let playerItem: AVPlayerItem?
         
@@ -143,13 +154,17 @@ class MusicPlayerViewController: UIViewController {
     }
     
     @objc func playerDidFinishPlaying(sender: Notification) {
-        playSongAt()
+        initSongPlaying()
     }
     
     @objc func setupTimers() {
         if (MusicPlayerViewController.player != nil) && !(MusicPlayerViewController.player?.currentItem?.duration.seconds.isNaN)! {
             progressSlider.maximumValue = Float((MusicPlayerViewController.player?.currentItem?.duration.seconds)!)
             progressSlider.value = Float((MusicPlayerViewController.player?.currentTime().seconds)!)
+            
+            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = CMTimeGetSeconds((MusicPlayerViewController.player?.currentItem!.duration)!)
+            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = CMTimeGetSeconds((MusicPlayerViewController.player?.currentTime())!)
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
         
         setupCurrentTime()
@@ -206,13 +221,39 @@ class MusicPlayerViewController: UIViewController {
             debugPrint("Playback OK")
             
             UIApplication.shared.beginReceivingRemoteControlEvents()
+            setupCommandCenterRemoteControl()
         } catch {
             print(error)
         }
     }
     
-    func setupCommandCenter(songName: String, artistName: String) {
+    func setupCommandCenterInfo(songName: String, artistName: String) {
+        nowPlayingInfo[MPMediaItemPropertyTitle] = songName
+        nowPlayingInfo[MPMediaItemPropertyArtist] = artistName
         
+        if let image = UIImage(named: "album_placeholder.png") {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+                return image
+            }
+        }
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+    
+    func setupCommandCenterRemoteControl() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.previousTrackCommand.isEnabled = false
+        commandCenter.nextTrackCommand.isEnabled = false
+        
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            playSong()
+            return .success
+        }
+        
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            pauseSong()
+            return .success
+        }
     }
     
     static func isPlaying() -> Bool {
@@ -221,8 +262,7 @@ class MusicPlayerViewController: UIViewController {
 }
 
 /* TODO LIST:
-- Command Center
-- Dostosować do light/dark mode
+- Command Center - nie działa tylko slider na zablokowanym ekranie
 - Pokombinować żeby dodawać do ulubionych
 - Dodać żeby player się minimalizował i można było wrócić do obecnie grającej piosenki
 */
