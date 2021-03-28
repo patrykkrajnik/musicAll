@@ -29,7 +29,8 @@ class MusicPlayerViewController: UIViewController {
     
     var songTitle = "Song Title"
     var songArtist = "Artist"
-    var isJsonOffline = false 
+    var isJsonOffline = false
+    var nowPlayingInfo: [String:AnyObject] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,11 +87,33 @@ class MusicPlayerViewController: UIViewController {
     @IBAction func playButtonTapped(_ sender: UIButton) {
         MusicPlayerViewController.player?.play()
         updateButtons()
+        
+        UIView.animate(
+            withDuration: 1.0,
+            delay: 0.0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseIn,
+            animations: {
+                self.songArtworkView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            },
+            completion: nil)
     }
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
         MusicPlayerViewController.player?.pause()
         updateButtons()
+        
+        UIView.animate(
+            withDuration: 1.0,
+            delay: 0.0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseOut,
+            animations: {
+                self.songArtworkView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            },
+            completion: nil)
     }
     
     func playSongAt() {
@@ -186,6 +209,10 @@ class MusicPlayerViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func setupCommandCenter(songName: String, artistName: String) {
+        
     }
     
     static func isPlaying() -> Bool {
