@@ -1,5 +1,5 @@
 //
-//  MusicCell.swift
+//  MusicListCell.swift
 //  MusicAll
 //
 //  Created by Patryk Krajnik on 10/01/2021.

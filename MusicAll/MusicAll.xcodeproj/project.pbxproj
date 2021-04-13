@@ -21,13 +21,14 @@
 		DCAED58425AB49AC00F77A3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58225AB49AC00F77A3D /* Main.storyboard */; };
 		DCAED58625AB49AD00F77A3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58525AB49AD00F77A3D /* Assets.xcassets */; };
 		DCAED58925AB49AD00F77A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */; };
-		DCAED59625AB4FB500F77A3D /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED59525AB4FB500F77A3D /* MusicListViewController.swift */; };
 		DCAED59B25AB5AFF00F77A3D /* album_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED59A25AB5AFF00F77A3D /* album_placeholder.png */; };
 		DCAED59E25AB5B0500F77A3D /* pause_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED59D25AB5B0500F77A3D /* pause_rounded.png */; };
 		DCAED5A125AB5B0A00F77A3D /* play_rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A025AB5B0A00F77A3D /* play_rounded.png */; };
 		DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */; };
 		DCAED5A725AB5B1200F77A3D /* skipForward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */; };
 		DCAED5AA25AB5E5300F77A3D /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */; };
+		E5D768CF2613987300DFFCBE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D768CE2613987300DFFCBE /* Extensions.swift */; };
+		E5E979162611DB0900E30302 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E979152611DB0900E30302 /* MusicListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,13 +48,14 @@
 		DCAED58525AB49AD00F77A3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCAED58825AB49AD00F77A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCAED58A25AB49AD00F77A3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCAED59525AB4FB500F77A3D /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 		DCAED59A25AB5AFF00F77A3D /* album_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = album_placeholder.png; sourceTree = "<group>"; };
 		DCAED59D25AB5B0500F77A3D /* pause_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_rounded.png; sourceTree = "<group>"; };
 		DCAED5A025AB5B0A00F77A3D /* play_rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_rounded.png; sourceTree = "<group>"; };
 		DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipBackward_icon.png; sourceTree = "<group>"; };
 		DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipForward_icon.png; sourceTree = "<group>"; };
 		DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
+		E5D768CE2613987300DFFCBE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E5E979152611DB0900E30302 /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,9 +120,10 @@
 			children = (
 				DCAED57C25AB49AC00F77A3D /* AppDelegate.swift */,
 				DCAED57E25AB49AC00F77A3D /* SceneDelegate.swift */,
+				E5D768CE2613987300DFFCBE /* Extensions.swift */,
 				DCAED58225AB49AC00F77A3D /* Main.storyboard */,
-				DCAED59225AB4E3F00F77A3D /* Music List */,
-				DCAED59325AB4E5400F77A3D /* Music Player */,
+				DCAED59225AB4E3F00F77A3D /* MusicList */,
+				DCAED59325AB4E5400F77A3D /* MusicPlayer */,
 				DC4EF8C125D01FA500C7CE34 /* Model */,
 				DCAED58525AB49AD00F77A3D /* Assets.xcassets */,
 				DCAED58725AB49AD00F77A3D /* LaunchScreen.storyboard */,
@@ -131,21 +134,21 @@
 			path = MusicAll;
 			sourceTree = "<group>";
 		};
-		DCAED59225AB4E3F00F77A3D /* Music List */ = {
+		DCAED59225AB4E3F00F77A3D /* MusicList */ = {
 			isa = PBXGroup;
 			children = (
-				DCAED59525AB4FB500F77A3D /* MusicListViewController.swift */,
+				E5E979152611DB0900E30302 /* MusicListViewController.swift */,
 				DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */,
 			);
-			path = "Music List";
+			path = MusicList;
 			sourceTree = "<group>";
 		};
-		DCAED59325AB4E5400F77A3D /* Music Player */ = {
+		DCAED59325AB4E5400F77A3D /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
 				DC888E3925AB773C0001A252 /* MusicPlayerViewController.swift */,
 			);
-			path = "Music Player";
+			path = MusicPlayer;
 			sourceTree = "<group>";
 		};
 		DCAED59925AB5ACF00F77A3D /* Images */ = {
@@ -242,11 +245,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D768CF2613987300DFFCBE /* Extensions.swift in Sources */,
 				DC4EF8C325D01FC600C7CE34 /* SongModel.swift in Sources */,
+				E5E979162611DB0900E30302 /* MusicListViewController.swift in Sources */,
 				DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */,
 				DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */,
 				DC888E3A25AB773C0001A252 /* MusicPlayerViewController.swift in Sources */,
-				DCAED59625AB4FB500F77A3D /* MusicListViewController.swift in Sources */,
 				DCAED5AA25AB5E5300F77A3D /* MusicListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

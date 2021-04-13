@@ -31,15 +31,18 @@ class MusicPlayerViewController: UIViewController {
     var songTitle = "Song Title"
     var songArtist = "Artist"
     var isJsonOffline = false
-    var nowPlayingInfo: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressSlider.addTarget(self, action: #selector(userSeek), for: UIControl.Event.valueChanged)
         
-        setupInitialUI()
         initSongPlaying()
         setupAVAudioSession()
+        setupInitialUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateCommandCenterInfo(songName: songTitle, songArtist: songArtist, imageName: "album_placeholder.png")
     }
     
     func setupInitialUI() {
@@ -72,8 +75,6 @@ class MusicPlayerViewController: UIViewController {
         } else {
             artistNameLabel.isHidden = true
         }
-        
-        setupCommandCenterInfo(songName: songTitle, artistName: songArtist)
     }
     
     func updateButtons() {
@@ -130,11 +131,11 @@ class MusicPlayerViewController: UIViewController {
     func initSongPlaying() {
         var songURL = ""
         let playerItem: AVPlayerItem?
-        
+
         if MusicPlayerViewController.player != nil {
             MusicPlayerViewController.player?.pause()
         }
-        
+
         switch isJsonOffline {
         case true:
             songURL = Bundle.main.path(forResource: "\(songArtist) - \(songTitle)", ofType: "mp3")!
@@ -144,7 +145,7 @@ class MusicPlayerViewController: UIViewController {
             let changedURL = songURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             playerItem = AVPlayerItem(url: URL(string: changedURL!)!)
         }
-        
+
         MusicPlayerViewController.player = AVPlayer(playerItem: playerItem)
         MusicPlayerViewController.player?.volume = 1.0
         MusicPlayerViewController.player?.play()
@@ -161,10 +162,6 @@ class MusicPlayerViewController: UIViewController {
         if (MusicPlayerViewController.player != nil) && !(MusicPlayerViewController.player?.currentItem?.duration.seconds.isNaN)! {
             progressSlider.maximumValue = Float((MusicPlayerViewController.player?.currentItem?.duration.seconds)!)
             progressSlider.value = Float((MusicPlayerViewController.player?.currentTime().seconds)!)
-            
-            nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = CMTimeGetSeconds((MusicPlayerViewController.player?.currentItem!.duration)!)
-            nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = CMTimeGetSeconds((MusicPlayerViewController.player?.currentTime())!)
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
         }
         
         setupCurrentTime()
@@ -227,19 +224,6 @@ class MusicPlayerViewController: UIViewController {
         }
     }
     
-    func setupCommandCenterInfo(songName: String, artistName: String) {
-        nowPlayingInfo[MPMediaItemPropertyTitle] = songName
-        nowPlayingInfo[MPMediaItemPropertyArtist] = artistName
-        
-        if let image = UIImage(named: "album_placeholder.png") {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                return image
-            }
-        }
-        
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
-    }
-    
     func setupCommandCenterRemoteControl() {
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.previousTrackCommand.isEnabled = false
@@ -262,7 +246,10 @@ class MusicPlayerViewController: UIViewController {
 }
 
 /* TODO LIST:
-- Command Center - nie działa tylko slider na zablokowanym ekranie
 - Pokombinować żeby dodawać do ulubionych
 - Dodać żeby player się minimalizował i można było wrócić do obecnie grającej piosenki
-*/
+
+Rozdzielić obsługę playera od ViewControllera, tutaj zostawić tylko interakcję a logikę osobno.
+ - Potem dodać observera nad rate playera i na tej podstawie aktualizować buttony
+ - W MusicPlayerViewControllerze zrobić strukturę, do której dodaję tytuł i artystę. Jeżeli po wejściu zgadzają się nazwy to nie odtwarza na nowo, tylko update UI
+ */

@@ -1,15 +1,25 @@
 //
-//  MusicList.swift
+//  MusicListViewController.swift
 //  MusicAll
 //
-//  Created by Patryk Krajnik on 10/01/2021.
+//  Created by Patryk Krajnik on 29/03/2021.
 //
 
 import UIKit
+import MediaPlayer
 
-class MusicListViewController: UITableViewController, UISearchBarDelegate {
+class MusicListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    @IBOutlet var musicList: UITableView!
+    @IBOutlet weak var musicList: UITableView!
+    @IBOutlet weak var miniPlayer: UIButton!
+    @IBOutlet weak var miniPlayerView: UIView!
+    
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
+    
+    @IBOutlet weak var songTitleLabel: UILabel!
+    @IBOutlet weak var songArtistLabel: UILabel!
+    
     
     lazy var searchBar: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -26,8 +36,15 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
     var songs = [SongModel]()
     var filteredSongs = [SongModel]()
     
+    let refreshControl = UIRefreshControl()
+    
     final let apiURL = "Here is a place for URL to your API"
     var isJsonOffline = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateSmallButtons()
+        MusicPlayerViewController.player?.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +52,56 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchBar
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(refreshContent(sender:)), for: .valueChanged)
+        musicList.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshContent(sender:)), for: .valueChanged)
+        
+        if UIDevice.current.hasNotch {
+            if let myConstraint = miniPlayerView.constraintWith(identifier: "playerHeight") {
+                myConstraint.constant = 100
+            }
+        }
         
         configureTableView()
         prepareToParse()
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "rate" {
+            updateSmallButtons()
+        }
+    }
+    
+    @IBAction func showMusicPlayer(_ sender: Any) {
+        print("JAZDA")
+        let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+    
+    @IBAction func playButtonTapped(_ sender: UIButton) {
+        MusicPlayerViewController.player?.play()
+        updateSmallButtons()
+    }
+    
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        MusicPlayerViewController.player?.pause()
+        updateSmallButtons()
+    }
+    
     @objc func refreshContent(sender: AnyObject) {
+        print("Refreshing...")
         prepareToParse()
-        refreshControl?.endRefreshing()
+        refreshControl.endRefreshing()
+    }
+    
+    func updateSmallButtons() {
+        switch MusicPlayerViewController.isPlaying() {
+        case true:
+            playButton.isHidden = true
+            pauseButton.isHidden = false
+        default:
+            playButton.isHidden = false
+            pauseButton.isHidden = true
+        }
     }
     
     func configureTableView() {
@@ -62,7 +119,7 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
     func prepareToParse() {
         if let url = URL(string: apiURL) {
             guard let data = try? Data(contentsOf: url) else {
-                print("Not a valid URL")
+                print("Not valid URL")
                 return
             }
             parseJsonFromURL(json: data)
@@ -97,7 +154,7 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func filterContentForSearchText(searchText: String) {
+    func filteredContentForSeatchText(searchText: String) {
         filteredSongs = songs.filter({(song: SongModel) -> Bool in
             if isSearchBarEmpty() {
                 return true
@@ -132,12 +189,12 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
         return trimmedSongArtist
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() { return filteredSongs.count }
         return songs.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell") as? MusicListCell else {return UITableViewCell()}
         
         let currentSongs: SongModel
@@ -150,25 +207,31 @@ class MusicListViewController: UITableViewController, UISearchBarDelegate {
         
         cell.songArtist.text = getSongArtist(songName: currentSongs.songName)
         cell.songTitle.text = getSongTitle(songName: currentSongs.songName)
+        
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MusicListCell
         let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
-        
+
         if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description {
             viewController?.songTitle = songTitleCell
             viewController?.songArtist = songArtistCell
             viewController?.isJsonOffline = isJsonOffline
+            
+            songTitleLabel.text = songTitleCell
+            songArtistLabel.text = songArtistCell
         }
-        
+
         self.navigationController?.pushViewController(viewController!, animated: true)
+        //self.navigationController?.present(viewController!, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension MusicListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
+        filteredContentForSeatchText(searchText: searchController.searchBar.text!)
     }
 }
