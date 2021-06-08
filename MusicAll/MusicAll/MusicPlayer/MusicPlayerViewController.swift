@@ -30,6 +30,7 @@ class MusicPlayerViewController: UIViewController {
     
     var songTitle = "Song Title"
     var songArtist = "Artist"
+    var songImage = "album_placeholder.png"
     var isJsonOffline = false
     
     override func viewDidLoad() {
@@ -42,12 +43,13 @@ class MusicPlayerViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateCommandCenterInfo(songName: songTitle, songArtist: songArtist, imageName: "album_placeholder.png")
+        updateCommandCenterInfo(songName: songTitle, songArtist: songArtist, imageName: songImage)
     }
     
     func setupInitialUI() {
         makeItRounded(view: playPauseButtonView, newSize: playPauseButtonView.frame.width)
         setupTitles()
+        setupArtwork()
         progressSlider.value = 0.0
         playButton.isHidden = true
         pauseButton.isHidden = false
@@ -75,6 +77,10 @@ class MusicPlayerViewController: UIViewController {
         } else {
             artistNameLabel.isHidden = true
         }
+    }
+    
+    func setupArtwork() {
+        songArtworkView.image = UIImage(named: songImage)
     }
     
     func updateButtons() {

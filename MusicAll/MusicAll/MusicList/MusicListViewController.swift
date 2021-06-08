@@ -19,6 +19,7 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var songArtistLabel: UILabel!
+    @IBOutlet weak var songArtworkImage: UIImageView!
     
     
     lazy var searchBar: UISearchController = {
@@ -72,7 +73,6 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func showMusicPlayer(_ sender: Any) {
-        print("JAZDA")
         let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
@@ -207,6 +207,8 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.songArtist.text = getSongArtist(songName: currentSongs.songName)
         cell.songTitle.text = getSongTitle(songName: currentSongs.songName)
+        cell.songImage.image = UIImage(named: currentSongs.songImage)
+        cell.songImage.image?.accessibilityIdentifier = currentSongs.songImage
         
         return cell
     }
@@ -215,13 +217,15 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.cellForRow(at: indexPath) as! MusicListCell
         let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
 
-        if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description {
+        if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description, let songImageCell = cell.songImage.image?.accessibilityIdentifier {
             viewController?.songTitle = songTitleCell
             viewController?.songArtist = songArtistCell
+            viewController?.songImage = songImageCell
             viewController?.isJsonOffline = isJsonOffline
             
             songTitleLabel.text = songTitleCell
             songArtistLabel.text = songArtistCell
+            songArtworkImage.image = UIImage(named: songImageCell)
         }
 
         self.navigationController?.pushViewController(viewController!, animated: true)

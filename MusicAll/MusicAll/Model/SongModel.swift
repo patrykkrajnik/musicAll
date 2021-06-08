@@ -10,4 +10,5 @@ import Foundation
 struct SongModel: Codable {
     var songName: String
     var songURL: String
+    var songImage: String
 }

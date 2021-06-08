@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z1Y-Zc-xIx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z1Y-Zc-xIx">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,7 +25,7 @@
                                             <action selector="showMusicPlayer:" destination="EPp-VK-XB4" eventType="touchUpInside" id="Q9Q-vx-W03"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="jai-ur-E82">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="jai-ur-E82">
                                         <rect key="frame" x="25" y="10" width="55" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="4Wu-mq-41M"/>
@@ -96,13 +96,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="100" id="fEJ-37-v7P" customClass="MusicListCell" customModule="MusicAll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEJ-37-v7P" id="Cdi-BK-ajH">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.33333333333331" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dh5-qJ-fpF">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dh5-qJ-fpF">
                                                     <rect key="frame" x="20" y="11" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="3tD-a9-sio"/>
@@ -110,13 +110,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIz-ib-B9K">
-                                                    <rect key="frame" x="124" y="19" width="251" height="24"/>
+                                                    <rect key="frame" x="123.99999999999999" y="19" width="252.66666666666663" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2X-wg-k0c">
-                                                    <rect key="frame" x="124" y="51" width="251" height="22"/>
+                                                    <rect key="frame" x="123.99999999999999" y="51" width="252.66666666666663" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -166,6 +166,7 @@
                         <outlet property="pauseButton" destination="3nw-4A-Mi2" id="yUc-Lj-Skh"/>
                         <outlet property="playButton" destination="1yQ-9a-4pp" id="Yet-45-Kd6"/>
                         <outlet property="songArtistLabel" destination="mfE-lz-2D1" id="dRp-5A-0sL"/>
+                        <outlet property="songArtworkImage" destination="jai-ur-E82" id="ZdG-tV-312"/>
                         <outlet property="songTitleLabel" destination="xjn-BL-p4X" id="9ih-8o-dUC"/>
                     </connections>
                 </viewController>
@@ -181,7 +182,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="album_placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="W3c-fq-bnE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W3c-fq-bnE">
                                 <rect key="frame" x="87.333333333333329" y="208.33333333333331" width="239.33333333333337" height="239.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="W3c-fq-bnE" secondAttribute="height" multiplier="1:1" id="u8w-xr-3YS"/>

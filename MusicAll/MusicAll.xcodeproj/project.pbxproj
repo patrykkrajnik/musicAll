@@ -27,6 +27,12 @@
 		DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */; };
 		DCAED5A725AB5B1200F77A3D /* skipForward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */; };
 		DCAED5AA25AB5E5300F77A3D /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */; };
+		E505A07C266F78BB0077BE4B /* memories.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A076266F78BB0077BE4B /* memories.jpg */; };
+		E505A07D266F78BB0077BE4B /* creativeminds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A077266F78BB0077BE4B /* creativeminds.jpg */; };
+		E505A07E266F78BB0077BE4B /* hey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A078266F78BB0077BE4B /* hey.jpg */; };
+		E505A07F266F78BB0077BE4B /* anewbeginning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A079266F78BB0077BE4B /* anewbeginning.jpg */; };
+		E505A080266F78BB0077BE4B /* happyrock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A07A266F78BB0077BE4B /* happyrock.jpg */; };
+		E505A081266F78BB0077BE4B /* ukulele.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A07B266F78BB0077BE4B /* ukulele.jpg */; };
 		E5D768CF2613987300DFFCBE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D768CE2613987300DFFCBE /* Extensions.swift */; };
 		E5E979162611DB0900E30302 /* MusicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E979152611DB0900E30302 /* MusicListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +60,12 @@
 		DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipBackward_icon.png; sourceTree = "<group>"; };
 		DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipForward_icon.png; sourceTree = "<group>"; };
 		DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
+		E505A076266F78BB0077BE4B /* memories.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = memories.jpg; path = ../../../../AlbumCovers/memories.jpg; sourceTree = "<group>"; };
+		E505A077266F78BB0077BE4B /* creativeminds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = creativeminds.jpg; path = ../../../../AlbumCovers/creativeminds.jpg; sourceTree = "<group>"; };
+		E505A078266F78BB0077BE4B /* hey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hey.jpg; path = ../../../../AlbumCovers/hey.jpg; sourceTree = "<group>"; };
+		E505A079266F78BB0077BE4B /* anewbeginning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = anewbeginning.jpg; path = ../../../../AlbumCovers/anewbeginning.jpg; sourceTree = "<group>"; };
+		E505A07A266F78BB0077BE4B /* happyrock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = happyrock.jpg; path = ../../../../AlbumCovers/happyrock.jpg; sourceTree = "<group>"; };
+		E505A07B266F78BB0077BE4B /* ukulele.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ukulele.jpg; path = ../../../../AlbumCovers/ukulele.jpg; sourceTree = "<group>"; };
 		E5D768CE2613987300DFFCBE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E5E979152611DB0900E30302 /* MusicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				DC4EF8AE25D01C0A00C7CE34 /* Songs */,
+				E505A075266F789E0077BE4B /* AlbumCovers */,
 				DC4EF8AF25D01C3200C7CE34 /* localMusic.json */,
 			);
 			path = Local;
@@ -163,6 +176,19 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		E505A075266F789E0077BE4B /* AlbumCovers */ = {
+			isa = PBXGroup;
+			children = (
+				E505A079266F78BB0077BE4B /* anewbeginning.jpg */,
+				E505A077266F78BB0077BE4B /* creativeminds.jpg */,
+				E505A07A266F78BB0077BE4B /* happyrock.jpg */,
+				E505A078266F78BB0077BE4B /* hey.jpg */,
+				E505A076266F78BB0077BE4B /* memories.jpg */,
+				E505A07B266F78BB0077BE4B /* ukulele.jpg */,
+			);
+			path = AlbumCovers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +247,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */,
+				E505A080266F78BB0077BE4B /* happyrock.jpg in Resources */,
+				E505A081266F78BB0077BE4B /* ukulele.jpg in Resources */,
 				DC6A9BD425D15FDB00DF30C3 /* Bensound - Happy Rock.mp3 in Resources */,
 				DCAED59E25AB5B0500F77A3D /* pause_rounded.png in Resources */,
 				DC6A9BD625D15FDB00DF30C3 /* Bensound - Hey.mp3 in Resources */,
@@ -232,9 +260,13 @@
 				DC6A9BD725D15FDB00DF30C3 /* Bensound - Memories.mp3 in Resources */,
 				DCAED58425AB49AC00F77A3D /* Main.storyboard in Resources */,
 				DC6A9BD825D15FDB00DF30C3 /* Bensound - Ukulele.mp3 in Resources */,
+				E505A07E266F78BB0077BE4B /* hey.jpg in Resources */,
+				E505A07C266F78BB0077BE4B /* memories.jpg in Resources */,
 				DC6A9BD325D15FDB00DF30C3 /* Bensound - Creative Minds.mp3 in Resources */,
 				DCAED59B25AB5AFF00F77A3D /* album_placeholder.png in Resources */,
+				E505A07F266F78BB0077BE4B /* anewbeginning.jpg in Resources */,
 				DC6A9BD525D15FDB00DF30C3 /* Bensound - A New Beginning.mp3 in Resources */,
+				E505A07D266F78BB0077BE4B /* creativeminds.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
