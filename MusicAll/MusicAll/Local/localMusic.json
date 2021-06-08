@@ -2,31 +2,31 @@
     {
         "songName":"Bensound - A New Beginning",
         "songURL":"Bensound - A New Beginning.mp3",
-        "songImage":"anewbeginning.jpg"
+        "songArtwork":"anewbeginning.jpg"
     },
     {
         "songName":"Bensound - Creative Minds",
         "songURL":"Bensound - Creative Minds.mp3",
-        "songImage":"creativeminds.jpg"
+        "songArtwork":"creativeminds.jpg"
     },
     {
         "songName":"Bensound - Memories",
         "songURL":"Bensound - Memories.mp3",
-        "songImage":"memories.jpg"
+        "songArtwork":"memories.jpg"
     },
     {
         "songName":"Bensound - Hey",
         "songURL":"Bensound - Hey.mp3",
-        "songImage":"hey.jpg"
+        "songArtwork":"hey.jpg"
     },
     {
         "songName":"Bensound - Happy Rock",
         "songURL":"Bensound - Happy Rock.mp3",
-        "songImage":"happyrock.jpg"
+        "songArtwork":"happyrock.jpg"
     },
     {
         "songName":"Bensound - Ukulele",
         "songURL":"Bensound - Ukulele.mp3",
-        "songImage":"ukulele.jpg"
+        "songArtwork":"ukulele.jpg"
     }
 ]

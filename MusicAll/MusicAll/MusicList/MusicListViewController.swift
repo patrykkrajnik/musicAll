@@ -36,6 +36,7 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var songs = [SongModel]()
     var filteredSongs = [SongModel]()
+    var songManager = SongManager()
     
     let refreshControl = UIRefreshControl()
     
@@ -44,7 +45,7 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         updateSmallButtons()
-        MusicPlayerViewController.player?.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
+        SongManager.player?.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
     override func viewDidLoad() {
@@ -74,16 +75,25 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func showMusicPlayer(_ sender: Any) {
         let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        
+        if let songTitle = songTitleLabel.text?.description, let songArtist = songArtistLabel.text?.description, let songArtwork = songArtworkImage.image?.accessibilityIdentifier {
+            if songTitle != "Title" && songArtist != "Artist" {
+                viewController?.songTitle = songTitle
+                viewController?.songArtist = songArtist
+                viewController?.songArtwork = songArtwork
+                
+                self.navigationController?.pushViewController(viewController!, animated: true)
+            }
+        }
     }
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
-        MusicPlayerViewController.player?.play()
+        SongManager.player?.play()
         updateSmallButtons()
     }
     
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
-        MusicPlayerViewController.player?.pause()
+        SongManager.player?.pause()
         updateSmallButtons()
     }
     
@@ -94,7 +104,7 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func updateSmallButtons() {
-        switch MusicPlayerViewController.isPlaying() {
+        switch SongManager.isPlaying() {
         case true:
             playButton.isHidden = true
             pauseButton.isHidden = false
@@ -207,8 +217,8 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.songArtist.text = getSongArtist(songName: currentSongs.songName)
         cell.songTitle.text = getSongTitle(songName: currentSongs.songName)
-        cell.songImage.image = UIImage(named: currentSongs.songImage)
-        cell.songImage.image?.accessibilityIdentifier = currentSongs.songImage
+        cell.songArtwork.image = UIImage(named: currentSongs.songArtwork)
+        cell.songArtwork.image?.accessibilityIdentifier = currentSongs.songArtwork
         
         return cell
     }
@@ -216,20 +226,17 @@ class MusicListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! MusicListCell
         let viewController = storyboard?.instantiateViewController(identifier: "MusicPlayerViewController") as? MusicPlayerViewController
-
-        if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description, let songImageCell = cell.songImage.image?.accessibilityIdentifier {
-            viewController?.songTitle = songTitleCell
-            viewController?.songArtist = songArtistCell
-            viewController?.songImage = songImageCell
-            viewController?.isJsonOffline = isJsonOffline
-            
+        
+        if let songTitleCell = cell.songTitle.text?.description, let songArtistCell = cell.songArtist.text?.description, let songArtworkCell = cell.songArtwork.image?.accessibilityIdentifier {
             songTitleLabel.text = songTitleCell
             songArtistLabel.text = songArtistCell
-            songArtworkImage.image = UIImage(named: songImageCell)
+            songArtworkImage.image = UIImage(named: songArtworkCell)
+            
+            songManager.appendMetadata(songTitleCell, songArtistCell, songArtworkCell, isJsonOffline)
+            viewController?.songManager = songManager
         }
-
+        
         self.navigationController?.pushViewController(viewController!, animated: true)
-        //self.navigationController?.present(viewController!, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

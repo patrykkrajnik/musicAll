@@ -12,7 +12,7 @@ import MediaPlayer
 class MusicPlayerViewController: UIViewController {
     
     @IBOutlet weak var songTitleLabel: UILabel!
-    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var songArtistLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var currentTimeLeftLabel: UILabel!
     
@@ -25,34 +25,38 @@ class MusicPlayerViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    var songManager: SongManager?
     private var timer: Timer!
-    static var player: AVPlayer?
     
-    var songTitle = "Song Title"
-    var songArtist = "Artist"
-    var songImage = "album_placeholder.png"
-    var isJsonOffline = false
+    var songTitle = ""
+    var songArtist = ""
+    var songArtwork = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progressSlider.addTarget(self, action: #selector(userSeek), for: UIControl.Event.valueChanged)
-        
-        initSongPlaying()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startSongPlaying()
         setupAVAudioSession()
         setupInitialUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateCommandCenterInfo(songName: songTitle, songArtist: songArtist, imageName: songImage)
+        if let safeSongManager = songManager {
+            updateCommandCenterInfo(songName: safeSongManager.getSongTitle(),
+                                    songArtist: safeSongManager.getSongArtist(),
+                                    songArtwork: safeSongManager.getSongArtwork())
+        }
     }
     
     func setupInitialUI() {
         makeItRounded(view: playPauseButtonView, newSize: playPauseButtonView.frame.width)
+        progressSlider.value = 0.0
+        updateButtons()
         setupTitles()
         setupArtwork()
-        progressSlider.value = 0.0
-        playButton.isHidden = true
-        pauseButton.isHidden = false
     }
     
     func makeItRounded(view: UIView, newSize: CGFloat) {
@@ -66,25 +70,35 @@ class MusicPlayerViewController: UIViewController {
     }
     
     func setupTitles() {
-        if songTitle != "" {
+        if let safeSongTitle = songManager?.getSongTitle() {
+            songTitleLabel.text = safeSongTitle
+        } else if songTitle != "" {
             songTitleLabel.text = songTitle
         } else {
             songTitleLabel.isHidden = true
         }
         
-        if songArtist != "" {
-            artistNameLabel.text = songArtist
+        if let safeSongArtist = songManager?.getSongArtist() {
+            songArtistLabel.text = safeSongArtist
+        } else if songArtist != "" {
+            songArtistLabel.text = songArtist
         } else {
-            artistNameLabel.isHidden = true
+            songArtistLabel.isHidden = true
         }
     }
     
     func setupArtwork() {
-        songArtworkView.image = UIImage(named: songImage)
+        if let safeSongArtwork = songManager?.getSongArtwork() {
+            songArtworkView.image = UIImage(named: safeSongArtwork)
+        } else if songArtwork != "" {
+            songArtworkView.image = UIImage(named: songArtwork)
+        } else {
+            songArtworkView.image = UIImage(named: "album_placeholder.png")
+        }
     }
     
     func updateButtons() {
-        switch MusicPlayerViewController.isPlaying() {
+        switch SongManager.isPlaying() {
         case true:
             playButton.isHidden = true
             pauseButton.isHidden = false
@@ -95,7 +109,7 @@ class MusicPlayerViewController: UIViewController {
     }
     
     func pauseSong() {
-        MusicPlayerViewController.player?.pause()
+        SongManager.player?.pause()
         updateButtons()
         
         UIView.animate(
@@ -111,7 +125,7 @@ class MusicPlayerViewController: UIViewController {
     }
     
     func playSong() {
-        MusicPlayerViewController.player?.play()
+        SongManager.player?.play()
         updateButtons()
         
         UIView.animate(
@@ -134,40 +148,19 @@ class MusicPlayerViewController: UIViewController {
         pauseSong()
     }
     
-    func initSongPlaying() {
-        var songURL = ""
-        let playerItem: AVPlayerItem?
-
-        if MusicPlayerViewController.player != nil {
-            MusicPlayerViewController.player?.pause()
-        }
-
-        switch isJsonOffline {
-        case true:
-            songURL = Bundle.main.path(forResource: "\(songArtist) - \(songTitle)", ofType: "mp3")!
-            playerItem = AVPlayerItem(url: URL(fileURLWithPath: songURL))
-        default:
-            songURL = "Here is a place for URL to your API with chosen song"
-            let changedURL = songURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            playerItem = AVPlayerItem(url: URL(string: changedURL!)!)
-        }
-
-        MusicPlayerViewController.player = AVPlayer(playerItem: playerItem)
-        MusicPlayerViewController.player?.volume = 1.0
-        MusicPlayerViewController.player?.play()
+    func startSongPlaying() {
+        songManager?.initSongPlaying()
         startTimer()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying(sender:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: playerItem)
     }
     
     @objc func playerDidFinishPlaying(sender: Notification) {
-        initSongPlaying()
+        startSongPlaying()
     }
     
     @objc func setupTimers() {
-        if (MusicPlayerViewController.player != nil) && !(MusicPlayerViewController.player?.currentItem?.duration.seconds.isNaN)! {
-            progressSlider.maximumValue = Float((MusicPlayerViewController.player?.currentItem?.duration.seconds)!)
-            progressSlider.value = Float((MusicPlayerViewController.player?.currentTime().seconds)!)
+        if (SongManager.player != nil) && !(SongManager.player?.currentItem?.duration.seconds.isNaN)! {
+            progressSlider.maximumValue = Float((SongManager.player?.currentItem?.duration.seconds)!)
+            progressSlider.value = Float((SongManager.player?.currentTime().seconds)!)
         }
         
         setupCurrentTime()
@@ -212,8 +205,8 @@ class MusicPlayerViewController: UIViewController {
     
     @objc func userSeek() {
         let value = progressSlider.value
-        if (MusicPlayerViewController.player != nil) && (MusicPlayerViewController.player?.currentTime() != nil) {
-            MusicPlayerViewController.player?.seek(to: CMTime(seconds: Double(value), preferredTimescale: (MusicPlayerViewController.player?.currentTime().timescale)!))
+        if (SongManager.player != nil) && (SongManager.player?.currentTime() != nil) {
+            SongManager.player?.seek(to: CMTime(seconds: Double(value), preferredTimescale: (SongManager.player?.currentTime().timescale)!))
         }
     }
     
@@ -245,17 +238,4 @@ class MusicPlayerViewController: UIViewController {
             return .success
         }
     }
-    
-    static func isPlaying() -> Bool {
-        return (player != nil) && (player!.rate != 0) && (player!.error == nil)
-    }
 }
-
-/* TODO LIST:
-- Pokombinować żeby dodawać do ulubionych
-- Dodać żeby player się minimalizował i można było wrócić do obecnie grającej piosenki
-
-Rozdzielić obsługę playera od ViewControllera, tutaj zostawić tylko interakcję a logikę osobno.
- - Potem dodać observera nad rate playera i na tej podstawie aktualizować buttony
- - W MusicPlayerViewControllerze zrobić strukturę, do której dodaję tytuł i artystę. Jeżeli po wejściu zgadzają się nazwy to nie odtwarza na nowo, tylko update UI
- */

@@ -27,6 +27,7 @@
 		DCAED5A425AB5B0E00F77A3D /* skipBackward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */; };
 		DCAED5A725AB5B1200F77A3D /* skipForward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */; };
 		DCAED5AA25AB5E5300F77A3D /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */; };
+		E5012021266F919F00588FBD /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5012020266F919F00588FBD /* SongManager.swift */; };
 		E505A07C266F78BB0077BE4B /* memories.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A076266F78BB0077BE4B /* memories.jpg */; };
 		E505A07D266F78BB0077BE4B /* creativeminds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A077266F78BB0077BE4B /* creativeminds.jpg */; };
 		E505A07E266F78BB0077BE4B /* hey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E505A078266F78BB0077BE4B /* hey.jpg */; };
@@ -60,6 +61,7 @@
 		DCAED5A325AB5B0E00F77A3D /* skipBackward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipBackward_icon.png; sourceTree = "<group>"; };
 		DCAED5A625AB5B1200F77A3D /* skipForward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipForward_icon.png; sourceTree = "<group>"; };
 		DCAED5A925AB5E5300F77A3D /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
+		E5012020266F919F00588FBD /* SongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		E505A076266F78BB0077BE4B /* memories.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = memories.jpg; path = ../../../../AlbumCovers/memories.jpg; sourceTree = "<group>"; };
 		E505A077266F78BB0077BE4B /* creativeminds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = creativeminds.jpg; path = ../../../../AlbumCovers/creativeminds.jpg; sourceTree = "<group>"; };
 		E505A078266F78BB0077BE4B /* hey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hey.jpg; path = ../../../../AlbumCovers/hey.jpg; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				DC4EF8C225D01FC600C7CE34 /* SongModel.swift */,
+				E5012020266F919F00588FBD /* SongManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				DCAED57D25AB49AC00F77A3D /* AppDelegate.swift in Sources */,
 				DCAED57F25AB49AC00F77A3D /* SceneDelegate.swift in Sources */,
 				DC888E3A25AB773C0001A252 /* MusicPlayerViewController.swift in Sources */,
+				E5012021266F919F00588FBD /* SongManager.swift in Sources */,
 				DCAED5AA25AB5E5300F77A3D /* MusicListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
