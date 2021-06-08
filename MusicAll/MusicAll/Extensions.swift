@@ -10,13 +10,13 @@ import UIKit
 import MediaPlayer
 
 extension UIViewController {
-    func updateCommandCenterInfo(songName: String, songArtist: String, imageName: String) {
+    func updateCommandCenterInfo(songName: String, songArtist: String, songArtwork: String) {
         var nowPlayingInfo = [String : Any]()
         
         nowPlayingInfo[MPMediaItemPropertyTitle] = songName
         nowPlayingInfo[MPMediaItemPropertyArtist] = songArtist
         
-        if let image = UIImage(named: imageName) {
+        if let image = UIImage(named: songArtwork) {
             nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
                 return image
             }
