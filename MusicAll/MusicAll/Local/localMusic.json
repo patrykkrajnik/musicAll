@@ -28,5 +28,30 @@
         "songName":"Bensound - Ukulele",
         "songURL":"Bensound - Ukulele.mp3",
         "songArtwork":"ukulele.jpg"
+    },
+    {
+        "songName":"Bensound - Dubstep",
+        "songURL":"Bensound - Dubstep.mp3",
+        "songArtwork":"dubstep.jpg"
+    },
+    {
+        "songName":"Bensound - Endless Motion",
+        "songURL":"Bensound - Endless Motion.mp3",
+        "songArtwork":"endlessmotion.jpg"
+    },
+    {
+        "songName":"Bensound - Energy",
+        "songURL":"Bensound - Energy.mp3",
+        "songArtwork":"energy.jpg"
+    },
+    {
+        "songName":"Bensound - Moose",
+        "songURL":"Bensound - Moose.mp3",
+        "songArtwork":"moose.jpg"
+    },
+    {
+        "songName":"Bensound - Tomorrow",
+        "songURL":"Bensound - Tomorrow.mp3",
+        "songArtwork":"tomorrow.jpg"
     }
 ]
