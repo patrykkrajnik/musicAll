@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				DC4EF8AE25D01C0A00C7CE34 /* Songs */,
-				E505A075266F789E0077BE4B /* AlbumCovers */,
+				E505A075266F789E0077BE4B /* Artworks */,
 				DC4EF8AF25D01C3200C7CE34 /* localMusic.json */,
 			);
 			path = Local;
@@ -204,7 +204,7 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		E505A075266F789E0077BE4B /* AlbumCovers */ = {
+		E505A075266F789E0077BE4B /* Artworks */ = {
 			isa = PBXGroup;
 			children = (
 				E505A079266F78BB0077BE4B /* anewbeginning.jpg */,
@@ -219,7 +219,7 @@
 				E5012023266FBE1C00588FBD /* tomorrow.jpg */,
 				E505A07B266F78BB0077BE4B /* ukulele.jpg */,
 			);
-			path = AlbumCovers;
+			path = Artworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
