@@ -24,6 +24,7 @@ Music player made for iOS devices, it allows to listen a music in the same way l
 - Remote controling audio (stop/pause) by Command Center
 - Rewinding audio by dragging slider
 - Possibility to connect to any back-end service
+- All music and artworks included as local files come from [Bensound](https://www.bensound.com)
 
 ## Usage
 Clone this repository, open at the Xcode and turn it on at your iPhone using `Command + R`.
