@@ -88,6 +88,10 @@ class MusicPlayerViewController: UIViewController {
     }
     
     func setupArtwork() {
+        if songManager == nil && !(SongManager.isPlaying()) {
+            songArtworkView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        }
+        
         if let safeSongArtwork = songManager?.getSongArtwork() {
             songArtworkView.image = UIImage(named: safeSongArtwork)
         } else if songArtwork != "" {
